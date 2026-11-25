@@ -1,0 +1,224 @@
+:root {
+    --bg-color: #080808;
+    --card-bg: #121212;
+    --accent-red: #ff0000;
+    --text-main: #e0e0e0;
+    --text-dim: #888888;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.08) 0%, transparent 80%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 3px solid var(--accent-red);
+    background: rgba(10, 10, 10, 0.98);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.logo .censored {
+    background-color: var(--accent-red);
+    color: #000;
+    padding: 2px 8px;
+    margin-left: 5px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    background: #000;
+    color: #fff;
+    border: 2px solid var(--accent-red);
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--accent-red);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-red);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.hero-title {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 4px;
+}
+
+.hero-subtitle {
+    text-align: center;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-red);
+    padding-left: 10px;
+}
+
+.schedule-section, .bells-section {
+    margin-bottom: 40px;
+}
+
+.main-schedule-img-wrapper {
+    position: relative;
+    border: 2px solid #333;
+    height: 450px;
+    background: #000;
+}
+
+.main-schedule-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.main-schedule-img-wrapper:hover img {
+    filter: grayscale(0%);
+}
+
+.schedule-overlay, .bell-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    border-top: 2px solid var(--accent-red);
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.bells-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.bell-img-wrapper {
+    position: relative;
+    border: 2px solid #333;
+    height: 300px;
+    background: #000;
+}
+
+.bell-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.bell-img-wrapper:hover img {
+    filter: grayscale(0%);
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #111;
+    border: 2px solid var(--accent-red);
+    width: 90%;
+    max-width: 550px;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+}
+
+.modal-header {
+    font-size: 1.8rem;
+    color: var(--accent-red);
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.close-btn:hover {
+    color: var(--accent-red);
+}
+
+.rules-list, .hw-list {
+    list-style: none;
+}
+
+.rules-list li, .hw-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge {
+    background: var(--accent-red);
+    color: #000;
+    font-weight: bold;
+    padding: 2px 8px;
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 10px; }
+    .bells-gallery { grid-template-columns: 1fr; }
+    .main-schedule-img-wrapper { height: 280px; }
+}
